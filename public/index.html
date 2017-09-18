@@ -16,6 +16,9 @@
     <!-- Nav CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+    <!-- New tweet form CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
@@ -33,6 +36,17 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
+      <!-- Adds new tweet form -->
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets/" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+          </form>
+      </section>
+
 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ante tortor, interdum convallis magna id, viverra placerat nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin viverra elementum tincidunt. Aliquam ultricies quam est, a luctus leo finibus et. Ut mattis malesuada leo elementum sagittis. Suspendisse quam velit, pretium eu ornare vitae, malesuada a est. Aliquam placerat malesuada ligula eget sodales. Aenean lacinia dignissim consequat. Duis sed lorem consequat, dignissim ipsum sit amet, tempus magna. Curabitur dignissim aliquet lectus quis porta. Cras sed odio a risus lacinia dapibus vel et tellus. Donec fermentum dignissim augue, porta imperdiet massa interdum vitae. Aenean in libero ut augue maximus ullamcorper.</p>
 
