@@ -67,50 +67,81 @@ $(document).ready(function() {
   ];
 
 
+  // Escapes text for safe use in tweets
+
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   // Dynamically creates tweet HTML
 
   const createTweetElement = function(tweetInfo) {
-    let $tweet = $("<article>")
-      .addClass("tweet");
+
+    let $tweet = `
+      <article class="tweet">
+        <header class="tweet-header">
+          <div class="avatar-div">
+            <img src="${tweetInfo.user.avatars.small}" alt="Avatar" class="tweet-avatar">
+          </div>
+          <h1>${tweetInfo.user.name}</h1>
+          <p class="header-handle">${tweetInfo.user.handle}</p>
+        </header>
+        <div class="tweet-content">
+          <p>${escape(tweetInfo.content.text)}</p>
+        </div>
+        <footer class="tweet-footer">
+          <p>${Math.floor((Date.now() - tweetInfo.created_at) / 86400000)} days ago</p>
+          <div class="tweet-icons">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </footer>
+      </article>`;
+
+    // let $tweet = $("<article>")
+    //   .addClass("tweet");
 
     // Create the header
-    let $header = $("<header>")
-      .addClass("tweet-header");
-    $header.append("<div>").addClass("avatar-div")
-      .append($("<img>")
-      .attr("src", tweetInfo.user.avatars.small)
-      .attr("alt", "Avatar").addClass("tweet-avatar"));
-    $header.append($("<h1>")
-      .text(tweetInfo.user.name));
-    $header.append($("<p>")
-      .text(tweetInfo.user.handle)
-      .addClass("header-handle"));
-    $tweet.append($header);
+    // let $header = $("<header>")
+    //   .addClass("tweet-header");
+    // $header.append("<div>").addClass("avatar-div")
+    //   .append($("<img>")
+    //   .attr("src", tweetInfo.user.avatars.small)
+    //   .attr("alt", "Avatar").addClass("tweet-avatar"));
+    // $header.append($("<h1>")
+    //   .text(tweetInfo.user.name));
+    // $header.append($("<p>")
+    //   .text(tweetInfo.user.handle)
+    //   .addClass("header-handle"));
+    // $tweet.append($header);
 
     // Create the body
-    let $body = $("<div>")
-      .text(tweetInfo.content.text)
-      .addClass("tweet-content");
-    $tweet.append($body);
+    // let $body = $("<div>")
+    //   .text(tweetInfo.content.text)
+    //   .addClass("tweet-content");
+    // $tweet.append($body);
 
     // Create the footer
-    let $footer = $("<footer>")
-      .addClass("tweet-footer");
-    $footer.append($("<p>")
-      .text(Math.floor((Date.now() - tweetInfo.created_at) / 86400000)  + " days ago"));
-    let $tweetIcons = $("<div>")
-      .addClass("tweet-icons");
-    $tweetIcons.append($("<i>")
-      .addClass("fa fa-flag")
-      .attr("aria-hidden", "true"));
-    $tweetIcons.append($("<i>")
-      .addClass("fa fa-retweet")
-      .attr("aria-hidden", "true"));
-    $tweetIcons.append($("<i>")
-      .addClass("fa fa-heart")
-      .attr("aria-hidden", "true"));
-    $footer.append($tweetIcons);
-    $tweet.append($footer);
+    // let $footer = $("<footer>")
+    //   .addClass("tweet-footer");
+    // $footer.append($("<p>")
+    //   .text(Math.floor((Date.now() - tweetInfo.created_at) / 86400000)  + " days ago"));
+    // let $tweetIcons = $("<div>")
+    //   .addClass("tweet-icons");
+    // $tweetIcons.append($("<i>")
+    //   .addClass("fa fa-flag")
+    //   .attr("aria-hidden", "true"));
+    // $tweetIcons.append($("<i>")
+    //   .addClass("fa fa-retweet")
+    //   .attr("aria-hidden", "true"));
+    // $tweetIcons.append($("<i>")
+    //   .addClass("fa fa-heart")
+    //   .attr("aria-hidden", "true"));
+    // $footer.append($tweetIcons);
+    // $tweet.append($footer);
     return $tweet;
   }
 
