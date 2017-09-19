@@ -13,6 +13,11 @@
   border-top-left-radius: 5px;
 }
 
+.tweet-header h1 {
+  font-size: 1.1em;
+  flex-grow: 15;
+}
+
 .tweet-avatar {
   margin: 10px;
   width: 40px;
@@ -21,10 +26,15 @@
   border-radius: 5px;
 }
 
+.avatar-div {
+  flex-grow: 1;
+}
+
 .header-handle {
-  margin: 10px 10px 10px 120px;
+  margin: 10px;
   font-size: 0.8em;
   color: grey;
+  flex-grow: 1;
 }
 
 .tweet-content {

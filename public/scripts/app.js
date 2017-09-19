@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Animated icons for hover over tweet
+
 $(document).ready(function() {
 
   $("#tweet-container").on("mouseover", "article", function(event) {
@@ -70,25 +72,32 @@ $(document).ready(function() {
   const createTweetElement = function(tweetInfo) {
     let $tweet = $("<article>")
       .addClass("tweet");
+
+    // Create the header
     let $header = $("<header>")
       .addClass("tweet-header");
-    $header.append($("<img>")
+    $header.append("<div>").addClass("avatar-div")
+      .append($("<img>")
       .attr("src", tweetInfo.user.avatars.small)
       .attr("alt", "Avatar").addClass("tweet-avatar"));
-    $header.append($("<h3>")
+    $header.append($("<h1>")
       .text(tweetInfo.user.name));
     $header.append($("<p>")
       .text(tweetInfo.user.handle)
       .addClass("header-handle"));
     $tweet.append($header);
+
+    // Create the body
     let $body = $("<div>")
       .text(tweetInfo.content.text)
       .addClass("tweet-content");
     $tweet.append($body);
+
+    // Create the footer
     let $footer = $("<footer>")
       .addClass("tweet-footer");
     $footer.append($("<p>")
-      .text(tweetInfo.created_at));
+      .text(Math.floor((Date.now() - tweetInfo.created_at) / 86400000)  + " days ago"));
     let $tweetIcons = $("<div>")
       .addClass("tweet-icons");
     $tweetIcons.append($("<i>")
@@ -105,11 +114,11 @@ $(document).ready(function() {
     return $tweet;
   }
 
+  // Render the tweets using createTweetElement function and the data array
 
   function renderTweets(tweets) {
     // loops through tweets
     for (let tweet of tweets) {
-      console.log(tweet)
       let $tweet = createTweetElement(tweet);
       $("#tweet-container").append($tweet);
     }
