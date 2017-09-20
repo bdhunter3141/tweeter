@@ -20,6 +20,7 @@ $(document).ready(function() {
   // Loads the tweets from the "/tweets/" page
 
   let loadTweets = function() {
+    $("#tweet-container").empty();
     $.get("/tweets/")
       .done(function(result){
       renderTweets(result);
@@ -46,9 +47,10 @@ $(document).ready(function() {
       $(".warning").text("Please enter a tweet.");
       return;
     }
-    $(".warning").remove();
+    $(".warning").empty();
     submitTweet($(event.target).serialize());
     $(event.target).find("textarea").val("");
+    $(".counter").text("140");
   });
 
 
@@ -106,8 +108,8 @@ $(document).ready(function() {
 
   function renderTweets(tweets) {
     // loops through tweets
-    for (let tweet of tweets) {
-      let $tweet = createTweetElement(tweet);
+    for (let i = tweets.length -1; i >=0; i--) {
+      let $tweet = createTweetElement(tweets[i]);
       $("#tweet-container").append($tweet);
     }
   }

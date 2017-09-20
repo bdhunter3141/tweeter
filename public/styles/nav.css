@@ -25,3 +25,45 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.compose-container {
+  float: right;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.compose-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.header-compose-button {
+  background-color: #ccffff;
+  color: #00a087;
+  width: 100px;
+  height: 45px;
+  border: 0.9px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-compose-button .fa {
+  margin: 1.5px 3px 0 0;
+}
+
+.header-compose-button:hover {
+  background-color: white;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
