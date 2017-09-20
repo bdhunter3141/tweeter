@@ -39,6 +39,7 @@
 
 .tweet-content {
   margin: 15px;
+  overflow-wrap: break-word;
 }
 
 .tweet-header {
@@ -72,4 +73,9 @@
   margin-bottom: 10px;
 }
 
+.warning {
+  color: red;
+  font-size: 0.7em;
+  font-style: italic;
+}
 

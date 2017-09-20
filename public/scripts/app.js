@@ -17,21 +17,52 @@ $(document).ready(function() {
   });
 
 
-  // Prevent the default submit of the new tweet form and post to "/tweets/"
-
-  $("#tweet-submit").submit(function(event) {
-    $.ajax({url: "/tweets/", dataType: "text", type: "post", data: $(this).serialize()});
-    event.preventDefault();
-  });
-
-
   // Loads the tweets from the "/tweets/" page
 
   let loadTweets = function() {
-    $.get("/tweets/", function(data){
-      renderTweets(data);
+    $.get("/tweets/")
+      .done(function(result){
+      renderTweets(result);
     })
-  }();
+      .fail(function(err) {
+        console.error(err);
+      });
+  };
+
+  loadTweets();
+
+  // Prevent the default submit of the new tweet form and post to "/tweets/"
+
+
+  $("#tweet-submit").submit(function(event) {
+    event.preventDefault();
+    if (parseInt($(".counter").text()) < 0) {
+      $(".warning").empty();
+      $(".warning").text("You have too many characters!");
+      return;
+    }
+    if (parseInt($(".counter").text()) === 140) {
+      $(".warning").empty();
+      $(".warning").text("Please enter a tweet.");
+      return;
+    }
+    $(".warning").remove();
+    submitTweet($(event.target).serialize());
+    $(event.target).find("textarea").val("");
+  });
+
+
+  // Submits the tweet
+
+  const submitTweet = function(tweetData) {
+    $.post("/tweets/", tweetData)
+      .done(function(result) {
+        loadTweets();
+      })
+      .fail(function(err) {
+        console.error(err);
+      });
+  }
 
 
   // Escapes text for safe use in tweets
