@@ -20,6 +20,7 @@ let loadTweets = function() {
     });
 };
 
+
 // Submits the tweet
 
 const submitTweet = function(tweetData) {
@@ -32,12 +33,56 @@ const submitTweet = function(tweetData) {
     });
 }
 
+
 // Escapes text for safe use in tweets
 
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+}
+
+
+// Converts date info into "days ago", "hours ago", "minutes ago", or "more than a year ago"
+
+function convertDate(dateNow, dateCreated) {
+  let timeAmount = dateNow - dateCreated;
+
+  // Less than a minute
+  if (timeAmount < 60000) {
+    return "Less than a minute ago";
+
+  // One minute or minutes up to an hour
+  } else if (timeAmount < 3600000) {
+    let minutes = Math.floor(timeAmount / 60000);
+    if (minutes === 1) {
+      return "One minute ago";
+    } else {
+      return minutes + " minutes ago";
+    }
+
+  // One hour or hours up to a day
+  } else if (timeAmount < 86400000) {
+    let hours = Math.floor(timeAmount / 3600000);
+    if (hours === 1) {
+      return "One hour ago";
+    } else {
+      return hours + " hours ago";
+    }
+
+  // One day or days up to a year
+  } else if (timeAmount < 31556952000) {
+    let days = Math.floor(timeAmount / 86400000);
+    if (days === 1) {
+      return "One day ago";
+    } else {
+      return days + " days ago";
+    }
+
+  // Over a year
+  } else {
+    return "Over a year ago";
+  }
 }
 
 
@@ -58,7 +103,7 @@ const createTweetElement = function(tweetInfo) {
         <p>${escape(tweetInfo.content.text)}</p>
       </div>
       <footer class="tweet-footer">
-        <p>${Math.floor((Date.now() - tweetInfo.created_at) / 86400000)} days ago</p>
+        <p>${convertDate(Date.now(), tweetInfo.created_at)}</p>
         <div class="tweet-icons">
           <a href ="#""><i class="fa fa-flag" aria-hidden="true"></i></a>
           <a href ="#""><i class="fa fa-retweet" aria-hidden="true"></i></a>

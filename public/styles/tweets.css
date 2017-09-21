@@ -1,8 +1,16 @@
+/*CSS for individual tweets*/
+
 .tweet {
   border: 1px solid #bbb;
   border-radius: 5px;
   margin: 20px 2em;
 }
+
+.tweet:hover .tweet-header {
+  opacity: 1;
+}
+
+/*Tweet Header*/
 
 .tweet-header {
   display: flex;
@@ -37,18 +45,20 @@
   flex-grow: 1;
 }
 
+.tweet-header {
+  opacity: 0.7;
+}
+
+
+/*Tweet Content*/
+
 .tweet-content {
   margin: 15px;
   overflow-wrap: break-word;
 }
 
-.tweet-header {
-  opacity: 0.7;
-}
 
-.tweet:hover .tweet-header {
-  opacity: 1;
-}
+/*Tweet Footer*/
 
 .tweet-footer {
   display: flex;
