@@ -6,7 +6,9 @@ Created to practice my HTML, CSS, JS, jQuery and AJAX front-end skills, and my N
 
 ## Final Product
 
+!["The main page of the Tweeter app where you can view all of the tweets."](https://github.com/bdhunter3141/tweeter/blob/master/docs/main-tweet-page.png?raw=true)
 
+!["The 'Compose' button while in hover state, and the 'Compose Tweet' form."](https://github.com/bdhunter3141/tweeter/blob/master/docs/compose-tweet.png?raw=true)
 
 ## Getting Started
 
