@@ -1,3 +1,5 @@
+// Creates the character counter at the bottom of the new tweet form
+
 $(document).ready(function() {
 
   $(".new-tweet").on("keyup", "textarea", function(event) {
@@ -6,7 +8,9 @@ $(document).ready(function() {
     let counter = $(".new-tweet").find(".counter");
     counter.text(charRemaining);
     if (counter.text() < 0) {
-      counter.css("color", "red");
+      $(".counter").addClass("warning");
+    } else {
+      $(".counter").removeClass("warning");
     }
   });
 

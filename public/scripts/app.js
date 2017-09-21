@@ -16,7 +16,7 @@ let loadTweets = function() {
     renderTweets(result);
   })
     .fail(function(err) {
-      console.error(err);
+      throw err;
     });
 };
 
@@ -28,7 +28,7 @@ const submitTweet = function(tweetData) {
       loadTweets();
     })
     .fail(function(err) {
-      console.error(err);
+      throw err;
     });
 }
 
@@ -60,9 +60,9 @@ const createTweetElement = function(tweetInfo) {
       <footer class="tweet-footer">
         <p>${Math.floor((Date.now() - tweetInfo.created_at) / 86400000)} days ago</p>
         <div class="tweet-icons">
-          <i class="fa fa-flag" aria-hidden="true"></i>
-          <i class="fa fa-retweet" aria-hidden="true"></i>
-          <i class="fa fa-heart" aria-hidden="true"></i>
+          <a href ="#""><i class="fa fa-flag" aria-hidden="true"></i></a>
+          <a href ="#""><i class="fa fa-retweet" aria-hidden="true"></i></a>
+          <a href ="#""><i class="fa fa-heart" aria-hidden="true"></i></a>
         </div>
       </footer>
     </article>`;
