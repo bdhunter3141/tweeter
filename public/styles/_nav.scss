@@ -1,0 +1,68 @@
+/*Import*/
+
+@import "_variables";
+
+/*Top Nav-bar*/
+
+#nav-bar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 80px;
+  background-color: $primaryColor;
+  color: #e8fdff;
+  padding: 0 2em;
+  z-index: 999;
+
+  .logo {
+    width: 80px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .header {
+    float: left;
+    line-height: 2em;
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/*Compose Tweet Button*/
+
+.compose-container {
+  float: right;
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  a {
+      display: block;
+      text-decoration: none;
+  }
+}
+
+.header-compose-button {
+  background-color: lighten($primaryColor, 65%);
+  color: $primaryColor;
+  width: 100px;
+  height: 45px;
+  border: 0.9px solid black;
+  border-radius: $borderRadius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-pencil-square-o {
+  margin: 1.5px 3px 0 0;
+}
+
+.header-compose-button:hover {
+  background-color: white;
+  color: black;
+}
+

@@ -1,0 +1,36 @@
+/*Import*/
+
+@import "_variables";
+
+/*New Tweet Form*/
+
+.new-tweet {
+  background-color: $secondaryColor;
+  padding: 1% 2% 2%;
+  margin: 10px 2em;
+  border-radius: $borderRadius;
+  border: $border;
+
+  h2 {
+    border-bottom: 1px solid black;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  input {
+    background-color: $secondaryColor;
+    border: $border;
+  }
+
+  textarea {
+    padding: 5px;
+    width: 100%;
+  }
+
+  span {
+    float: right;
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 4px;
+  }
+}

@@ -1,0 +1,92 @@
+/*Import*/
+
+@import "_variables";
+
+
+/*Individual tweets*/
+
+.tweet {
+  border: $border;
+  border-radius: $borderRadius;
+  margin: 20px 2em;
+}
+
+.tweet:hover .tweet-header {
+  opacity: 1;
+}
+
+/*Tweet Header*/
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $secondaryColor;
+  opacity: 0.7;
+  width: 100%;
+  border-top-right-radius: $borderRadius;
+  border-top-left-radius: $borderRadius;
+
+  h1 {
+    font-size: 1.1em;
+    flex-grow: 15;
+  }
+}
+
+.tweet-avatar {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: $borderRadius;
+}
+
+.avatar-div {
+  flex-grow: 1;
+}
+
+.header-handle {
+  margin: 10px;
+  font-size: 0.8em;
+  color: grey;
+  flex-grow: 1;
+}
+
+
+/*Tweet Content*/
+
+.tweet-content {
+  margin: 15px;
+  overflow-wrap: break-word;
+}
+
+
+/*Tweet Footer*/
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  font-size: 0.7em;
+  border-top: 1px solid #eee;
+  width: 98%;
+  margin: auto;
+  align-items: center;
+}
+
+.tweet-icons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .fa {
+    margin-right: 4px;
+    font-size: 1.2em;
+    color: #33ffba;
+    display: none;
+  }
+}
+
+.warning {
+  color: red;
+  font-size: 0.7em;
+  font-style: italic;
+}
+

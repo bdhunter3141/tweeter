@@ -25,3 +25,4 @@ Created to practice my HTML, CSS, JS, jQuery and AJAX front-end skills, and my N
 - Chance
 - MD5
 - MongoDB
+- Node-SASS-Middleware
