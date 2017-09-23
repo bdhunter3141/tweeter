@@ -107,7 +107,10 @@ const createTweetElement = function(tweetInfo) {
         <div class="tweet-icons">
           <a href ="#""><i class="fa fa-flag" aria-hidden="true"></i></a>
           <a href ="#""><i class="fa fa-retweet" aria-hidden="true"></i></a>
-          <a href ="#""><i class="fa fa-heart" aria-hidden="true"></i></a>
+          <form action ="#?_method=PUT" class="tweet-form" method="POST" data-id="${tweetInfo._id}">
+            <button class="likeIcon" type="submit"><a href="#"><i class="fa fa-heart" aria-hidden="true"></a></i></button>
+          </form>
+          <p class="likeCounter">(${tweetInfo.likes})</p>
         </div>
       </footer>
     </article>`;
@@ -141,10 +144,10 @@ $(document).ready(function() {
   // Animated icons for hover over tweet
 
   $("#tweet-container").on("mouseover", "article", function(event) {
-    $(this).find(".fa").show(200);
+    $(this).find(".fa, .likeCounter").show(200);
   })
   .on("mouseleave", "article", function() {
-    $(this).find(".fa").hide(200);
+    $(this).find(".fa, .likeCounter").hide(200);
   });
 
 
@@ -183,5 +186,23 @@ $(document).ready(function() {
     $("#tweet-submit").find("textarea").focus();
   });
 
+
+  // Updates the likes button
+
+let counter = -1;
+
+  $("#tweet-container").on("submit", ".tweet-form", function(event) {
+      event.preventDefault();
+      counter = counter === 1 ? -1 : 1;
+      let tweetID = $(this).data("id");
+      $.ajax(`/tweets/${tweetID}`, {method: "put", data: {alreadyClicked: counter}})
+      .done(function(result) {
+        loadTweets();
+      })
+      .fail(function(err) {
+        throw err;
+    });
+
+  });
 
 });

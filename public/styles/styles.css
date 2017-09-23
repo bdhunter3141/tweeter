@@ -165,15 +165,27 @@
 }
 
 .tweet-icons {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.tweet-icons .fa {
+.tweet-icons .fa, .tweet-icons .likeCounter {
   margin-right: 4px;
   font-size: 1.2em;
   color: #33ffba;
   display: none;
+}
+
+.tweet-icons .likeCounter {
+  color: #aeaeae;
+  font-size: 0.9em;
+}
+
+.likeIcon {
+  border: none;
+  background-color: inherit;
+  padding: 0;
 }
 
 .warning {

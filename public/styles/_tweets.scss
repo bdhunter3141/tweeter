@@ -73,8 +73,9 @@
 }
 
 .tweet-icons {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   .fa {
     margin-right: 4px;
@@ -82,6 +83,18 @@
     color: #33ffba;
     display: none;
   }
+
+  .likeCounter {
+    @extend .fa;
+    color: darken($secondaryColor, 25%);
+    font-size: 0.9em;
+  }
+}
+
+.likeIcon {
+  border: none;
+  background-color: inherit;
+  padding: 0;
 }
 
 .warning {

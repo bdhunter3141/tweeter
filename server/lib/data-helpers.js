@@ -1,5 +1,7 @@
 "use strict";
 
+const ObjectId = require('mongodb').ObjectID;
+
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
 
@@ -17,6 +19,13 @@ module.exports = function makeDataHelpers(db) {
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
         callback(null, result.sort(sortNewestFirst));
       });
+    },
+
+    // Updates the number of likes in the database
+    updateLikes: function(tweet, clicks, callback) {
+      db.collection("tweets").update({_id: ObjectId(tweet)}, {$inc: {likes: clicks}}, function(err, result) {
+        callback(null, true);
+      })
     }
-  };
+  }
 }
