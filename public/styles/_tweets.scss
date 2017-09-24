@@ -19,7 +19,6 @@
 
 .tweet-header {
   display: flex;
-  justify-content: space-between;
   background-color: $secondaryColor;
   opacity: 0.7;
   width: 100%;
@@ -28,7 +27,6 @@
 
   h1 {
     font-size: 1.1em;
-    flex-grow: 15;
   }
 }
 
@@ -39,15 +37,16 @@
   border-radius: $borderRadius;
 }
 
-.avatar-div {
-  flex-grow: 1;
+.header-text {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 .header-handle {
   margin: 10px;
   font-size: 0.8em;
   color: grey;
-  flex-grow: 1;
 }
 
 
@@ -101,5 +100,9 @@
   color: red;
   font-size: 0.7em;
   font-style: italic;
+}
+
+.redText {
+  @extend .warning;
 }
 

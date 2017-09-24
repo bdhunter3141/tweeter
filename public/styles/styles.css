@@ -17,7 +17,7 @@
 }
 
 #nav-bar .logo {
-  width: 80px;
+  height: 100%;
   float: left;
   margin-right: 10px;
 }
@@ -34,7 +34,7 @@
 /*Compose Tweet Button*/
 .compose-container {
   float: right;
-  height: 80px;
+  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -115,7 +115,6 @@
 /*Tweet Header*/
 .tweet-header {
   display: flex;
-  justify-content: space-between;
   background-color: #eee;
   opacity: 0.7;
   width: 100%;
@@ -125,7 +124,6 @@
 
 .tweet-header h1 {
   font-size: 1.1em;
-  flex-grow: 15;
 }
 
 .tweet-avatar {
@@ -135,15 +133,16 @@
   border-radius: 5px;
 }
 
-.avatar-div {
-  flex-grow: 1;
+.header-text {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 .header-handle {
   margin: 10px;
   font-size: 0.8em;
   color: grey;
-  flex-grow: 1;
 }
 
 /*Tweet Content*/
@@ -188,7 +187,7 @@
   padding: 0;
 }
 
-.warning {
+.warning, .redText {
   color: red;
   font-size: 0.7em;
   font-style: italic;
@@ -225,4 +224,52 @@ main {
   width: 450px;
   padding: 5px 10px;
   background-color: white;
+}
+
+/*Media Queries*/
+@media (max-width: 550px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    width: 100%;
+  }
+  .header-text {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .header-text h1 {
+    margin-bottom: 0;
+  }
+  .header-handle {
+    padding: 0;
+    margin: 3px;
+  }
+  .header-compose-button {
+    width: inherit;
+    height: inherit;
+    padding: 5px 5px 5px 8px;
+  }
+  .header-compose-button p {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  #nav-bar {
+    height: 40px;
+  }
+  .logo {
+    display: none;
+  }
+  main {
+    margin-top: 40px;
+  }
+  .tweet-content {
+    font-size: 14px;
+  }
 }

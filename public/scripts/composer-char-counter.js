@@ -8,9 +8,9 @@ $(document).ready(function() {
     let counter = $(".new-tweet").find(".counter");
     counter.text(charRemaining);
     if (counter.text() < 0) {
-      $(".counter").addClass("warning");
+      $(".counter").addClass("redText");
     } else {
-      $(".counter").removeClass("warning");
+      $(".counter").removeClass("redText");
     }
   });
 

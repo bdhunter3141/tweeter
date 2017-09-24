@@ -96,8 +96,10 @@ const createTweetElement = function(tweetInfo) {
         <div class="avatar-div">
           <img src="${tweetInfo.user.avatars.small}" alt="Avatar" class="tweet-avatar">
         </div>
-        <h1>${tweetInfo.user.name}</h1>
-        <p class="header-handle">${tweetInfo.user.handle}</p>
+        <div class="header-text">
+          <h1>${tweetInfo.user.name}</h1>
+          <p class="header-handle">${tweetInfo.user.handle}</p>
+        </div>
       </header>
       <div class="tweet-content">
         <p>${escape(tweetInfo.content.text)}</p>
